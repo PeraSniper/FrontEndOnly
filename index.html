@@ -1,0 +1,80 @@
+<html ng-app="myApp" ng-controller="myCtrl">
+    <head>
+        <title>{{ StoreTitle[storeID].w }}</title>
+        <link rel="stylesheet" href="smallphones.css">
+        <link rel="stylesheet" href="largerphones.css">
+        <link rel="stylesheet" href="largerdevices.css">
+        <link rel="stylesheet" href="landscapetablets.css">
+        <link rel="stylesheet" href="extralargedevices.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript" src="./words.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p id="dn">а</p>
+        <div id="topbanner">
+            <div id="sociallinkscont">
+                <div class="socialicon">
+                    <a href=""><img src="images/facebookicon.png" width="28px" height="28px"></a>
+                </div>
+                <div class="socialicon">
+                    <a href=""><img src="images/instagramicon.png" width="28px" height="28px"></a>
+                </div>
+                <div id="followtext">
+                    <p>{{ FollowUs[storeID].w }}</p>
+                </div>
+            </div>
+
+            <div id="bannermessage">
+                <p>{{ bannerText[storeID].w }}</p>
+            </div>
+
+            <div id="storeselect">
+                <div id="storetext">
+                    <p>{{ store[storeID].w }}</p>
+                </div>
+                <div id="storeselectdd">
+                    <div id="storeflag">
+                        <img src="{{ stores[storeID].imgsrc }}" width="40px" height="23px">
+                    </div>
+                    <div id="ddarrow" onmouseover="show()">
+                        <i class="arrow down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sidestoremenu" onmouseleave="hide()">
+            <div id="storelistsm">
+                <div id="storeinfocontsm">
+                    <div id="smcountryflag">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //Finds the current store ID, if its not found its set to serbian
+            var storeID = 0;
+            storeID = localStorage.getItem("StoreID");
+
+            function show(){
+                document.getElementById("sidestoremenu").style.width = "250px";
+            }
+
+            function hide(){
+                document.getElementById("sidestoremenu").style.width = "0px";
+            }
+
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope, $window){
+                $scope.storeID = $window.storeID;
+                $scope.StoreTitle = StartingPage;
+                $scope.FollowUs = FollowUs;
+                $scope.bannerText = bannertext;
+                $scope.store = store;
+                $scope.stores = stores;
+            });
+
+        </script>
+    </body>
+</html>

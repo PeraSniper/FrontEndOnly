@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Изаберите Продавницу</title>
+        <link rel="stylesheet" href="smallphones.css">
+        <link rel="stylesheet" href="largerphones.css">
+        <link rel="stylesheet" href="largerdevices.css">
+        <link rel="stylesheet" href="landscapetablets.css">
+        <link rel="stylesheet" href="extralargedevices.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript" src="./words.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="logoselectstore">
+            <img src="images/logo-01.png" width="200px" height="200px">
+        </div>
+        <div id="ssmaintext">
+            <p id="maintitle">ИЗАБЕРИТЕ ПРОДАВНИЦУ</p>
+        </div>
+        <div id="storelist" ng-app="displayStores" ng-controller="setStoreVars">
+            <!--Using Angular, div for every store is created with their respective id number. That id is being passed to javascript function and its being set as storeID var in local storage.-->
+            <div class="countryinfocontainer" ng-repeat="x in names">
+                <div class="countryflagcontainer"><img src="{{ x.imgsrc }}" width="45px" height="25px"></div>
+                <div class="countrynametext"><a href="index.html" id="{{ $index }}" onclick="setstoreID(this.id)"><p>{{ x.name }}</p></a></div>
+            </div>
+            <script>
+                var storeID = 0;
+                //This function sets the store ID to local storage when the a tag is clicked.
+                function setstoreID(id){
+                    storeID = id;
+                    localStorage.setItem("StoreID", storeID);
+                }
+
+                //Declaring stores in Angular.
+                var app = angular.module("displayStores", []);
+                app.controller("setStoreVars", function($scope){
+                    $scope.names = stores;
+                })
+            </script>
+        </div>
+    </body>
+</html>

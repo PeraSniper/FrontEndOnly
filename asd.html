@@ -1,0 +1,36 @@
+<html ng-app="myApp" ng-controller="myCtrl">
+    <head>
+        <title>{{ names[aas[0]].name }}</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="smallphones.css">
+        <link rel="stylesheet" href="largerphones.css">
+        <link rel="stylesheet" href="largerdevices.css">
+        <link rel="stylesheet" href="landscapetablets.css">
+        <link rel="stylesheet" href="extralargedevices.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="ui()">
+        <div>
+            <h3>{{ variable1 }}</h3>
+        </div>
+            
+            
+            <script>
+                function ui()
+                {
+                    alert(localStorage.getItem("StoreID"));
+                }
+                var var1;
+                var params = new URLSearchParams(window.location.search);
+                var1 = params.get('sv');
+                console.log(var1);
+
+                var app = angular.module('myApp', []);
+
+                app.controller('myCtrl', function($scope, $window) {
+                    $scope.variable1 = $window.var1;
+                });
+            </script>
+    </body>
+</html>

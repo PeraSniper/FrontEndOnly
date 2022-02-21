@@ -1,0 +1,86 @@
+body{
+    margin: 0;
+}
+@media only screen and (max-width: 600px) {
+    /*STORE SELECT------------------------------------------------------*/
+    #logoselectstore{
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        margin-top: 50px;
+        /*border: 1px solid red*/;
+    }
+
+    #ssmaintext{
+        width: auto;
+        height: 50px;
+        margin: auto;
+        margin-top: 50px;
+        /*border: 1px solid red*/;
+    }
+
+    #maintitle{
+        font-family: defcyrillicbold;
+        font-size: 40;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    #storelist{
+        width: auto;
+        height: auto;
+        margin: auto;
+        margin-top: 50px;
+        /*border: 1px solid red*/;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .countryinfocontainer{
+        width: 200px;
+        height: 50px;
+        /*border: 1px solid black*/;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        vertical-align: middle;
+    }
+
+    .countryflagcontainer{
+        
+        align-self: center;
+        border: 1px solid black;
+        margin-left: 20px;
+    }
+
+    .countrynametext{
+        align-self: center;
+        /*border: 1px solid black*/;
+        margin-left: 10px;
+        display: inline-block;
+        max-height: 50px;
+    }
+
+    .countrynametext > a > p{
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .countrynametext > a:hover > p{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .countrynametext > a{
+        text-decoration: none;
+        color: black;
+    }
+    /*INDEX--------------------------------------------------------------------------------*/
+    
+    #topbanner{
+        display: none;
+    }
+}
